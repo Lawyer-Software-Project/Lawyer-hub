@@ -1,7 +1,7 @@
-function Button({ text, width, height, }) {
+function Button({ text, width, height, href }) {
     return (
         <>
-            <a href="/login">
+            <a href={href}>
                 <button className="bg-[#4485E7] text-white rounded-[9px] text-3xl " style={{ width: width, height: height }}>
                     {text}
                 </button>
