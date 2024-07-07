@@ -5,7 +5,7 @@ export default function Footer() {
 
                 <div className="text-[rgb(0,0,0)] text-left font-['CrimsonText-Regular',static] text-2xl font-normal relative">
                     LAWYER’S
-                <img className="shrink-0 w-3 h-3 relative overflow-visible" src="./trademark-circle-outlined0.svg" />
+                {/* <img className="shrink-0 w-3 h-3 relative overflow-visible" src="./trademark-circle-outlined0.svg" /> */}
                 </div>
 
                 <div className="flex flex-row gap-3 float-right">
