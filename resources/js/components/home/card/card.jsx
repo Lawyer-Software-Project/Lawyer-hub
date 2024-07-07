@@ -28,7 +28,7 @@ function card({ imageSrc, title, description, position, colorWords }) {
             <>
                 <div className={divClass}>
                     <img src={imageSrc} alt="Home Images" className={imgClass} />
-                    <div className={childrenDivClass}>
+                    <div className={childrenDivClass + " text-right"}>
                         <h1 className={h1Class} dangerouslySetInnerHTML={{ __html: title }}></h1>
                         <p>{description}</p>
                     </div>
