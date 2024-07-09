@@ -21,7 +21,7 @@ function FormBuild({ imgSrc, imgAlt, mainTitle }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        router.post('/users', values)
+        router.post('/store', values)
     }
 
     return (<>

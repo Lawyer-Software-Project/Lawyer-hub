@@ -9,9 +9,11 @@ class UsersController extends Controller
 {
     public function index()
     {
-        return Inertia::render('/', [
-          'indexs' => UserModel::all(),
-        ]);
+        return Inertia::render("home");
+    }
+
+    public function create(){
+        return Inertia::render("signup");
     }
 
     public function store(Request $request)
@@ -21,6 +23,12 @@ class UsersController extends Controller
             'password' => ['required', 'max:50'],
         ]));
 
-        return to_route('signin');
+        $User = new UserModel();
+        $User->email = $request->email;
+        $User->password = $request->password;
+
+        $User->save();
+
+        return redirect('signin');
     }
 }
