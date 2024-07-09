@@ -17,6 +17,12 @@ Route::get("/cadinfo", function () {
     return Inertia::render("cadinfo");
 
 });
+Route::get("/cadform/{advogado?}", function ($advogado = null) {
+    $advogado = filter_var($advogado, FILTER_VALIDATE_BOOLEAN);
+    return Inertia::render('formCad', [
+        'advogado' => $advogado,
+    ]);
+});
 
 
 
