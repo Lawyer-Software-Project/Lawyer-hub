@@ -2,7 +2,6 @@ import Layout from '../layouts/layout.jsx'
 import Card from '../components/home/card/card.jsx'
 import Button from '../components/button/button.jsx'
 
-
 function Home() {
     return (<>
         <div>
@@ -28,11 +27,12 @@ function Home() {
                 description={'Resolva seu caso com mais rapidez, sem demora exagerada para encontrar advogados!'}
             />
 
-            <div className="flex  justify-center m-[5vh]">
+            <div className="flex justify-center m-[5vh]">
                 <Button
                     text={'Começar!'}
                     width={'250px'}
                     height={'50px'}
+                    href={'/signin'}
                 />
             </div>
         </div>
