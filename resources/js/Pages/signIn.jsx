@@ -1,11 +1,12 @@
-import Layout from '../layouts/layout.jsx'
+import Layout from "@/layouts/layout";
+import FormBuild from '../components/formBuild/formBuild.jsx'
 
 function SignIn() {
     return (<>
-        <h1>Login</h1>
+        <FormBuild imgSrc={'/assets/signin/signinHammer.png'} imgAlt={'signin'} mainTitle={'Bem Vindo De Volta!'} />        
     </>)
 }
 
-SignIn.layout = page => <Layout children={page} title={'Login'} />
+SignIn.layout = page => <Layout children={page} title={'SignIn'} fixedStatus={true} />
 
 export default SignIn
