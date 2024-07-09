@@ -13,6 +13,10 @@ Route::get("/signin", function () {
     return Inertia::render("signIn");
 
 });
+Route::get("/cadinfo", function () {
+    return Inertia::render("cadinfo");
+
+});
 
 
 

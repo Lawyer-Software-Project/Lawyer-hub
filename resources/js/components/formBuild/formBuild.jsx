@@ -1,7 +1,7 @@
 import Button from '@/components/button/button'
 import Input from '@/components/input/Input'
 
-function FormBuild({ imgSrc, imgAlt, mainTitle }) {
+function FormBuild({ imgSrc, imgAlt, mainTitle, url }) {
     return (<>
         <div className="grid grid-cols-2 h-[95vh]">
             <div className="overflow-hidden">
@@ -35,7 +35,7 @@ function FormBuild({ imgSrc, imgAlt, mainTitle }) {
                     />
                     <div>
                         <h1 className="font-bold text-left mb-3 mt-5">Ja tem conta?</h1>
-                        <a className="text-[#4485E7] w-[300px] rounded-lg py-2 px-[85px] border border-[#4485E7]" href="#">Entre na sua Conta</a>
+                        <a className="text-[#4485E7] w-[300px] rounded-lg py-2 px-[85px] border border-[#4485E7]" href={url}>Entre na sua Conta</a>
                     </div>
                 </div>
 

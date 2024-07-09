@@ -3,7 +3,7 @@ import FormBuild from '../components/formBuild/formBuild.jsx'
 
 function SignIn() {
     return (<>
-        <FormBuild imgSrc={'/assets/signin/signinHammer.png'} imgAlt={'signin'} mainTitle={'Bem Vindo De Volta!'} />        
+        <FormBuild imgSrc={'/assets/signin/signinHammer.png'} imgAlt={'signin'} mainTitle={'Bem Vindo De Volta!'} url={"/signup"}/>        
     </>)
 }
 
