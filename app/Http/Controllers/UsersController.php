@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\UserModel;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -12,23 +14,30 @@ class UsersController extends Controller
         return Inertia::render("home");
     }
 
-    public function create(){
+    public function signUp()
+    {
         return Inertia::render("signup");
+    }
+
+    public function signIn(){
+
+        return Inertia::render("signin");
     }
 
     public function store(Request $request)
     {
-        UserModel::create($request->validate([
-            'email' => ['required', 'max:50', 'email'],
-            'password' => ['required', 'max:50'],
-        ]));
+        $request->validate([
+            'email' => 'required|email|unique:user_models,email',
+            'password' => 'required|min:8',
+        ]);
 
         $User = new UserModel();
         $User->email = $request->email;
-        $User->password = $request->password;
+        $User->password = Hash::make($request->password);
 
         $User->save();
 
         return redirect('signin');
     }
 }
+

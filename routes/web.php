@@ -6,8 +6,10 @@ use App\Http\Controllers\UsersController;
 
 
 Route::get('/', [UsersController::class, 'index']);  
-Route::get('signup', [UsersController::class,'create']);
-Route::post('signup/store', [UsersController::class, 'store']);
+Route::get('/signin', [UsersController::class,'signIn']);
+Route::get('/signup', [UsersController::class,'signUp']);
+Route::post('/store', [UsersController::class, 'store']);
+
 /* Route::get("/", function () {
     return Inertia::render("home");
 });
