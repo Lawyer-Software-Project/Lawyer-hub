@@ -10,17 +10,17 @@ Route::get('/signin', [UsersController::class,'signIn']);
 Route::get('/signup', [UsersController::class,'signUp']);
 Route::post('/store', [UsersController::class, 'store']);
 
-/* Route::get("/", function () {
-    return Inertia::render("home");
+ Route::get("/signin2", function () {
+    return Inertia::render("signin-2");
 });
 
-Route::get("/signup", function () {
+/* Route::get("/signup", function () {
     return Inertia::render("signup");
 });s
 Route::get("/signin", function () {
     return Inertia::render("signIn");
 
-}); */
+});  */
 
 
 
