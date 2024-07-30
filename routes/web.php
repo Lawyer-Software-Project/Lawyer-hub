@@ -9,6 +9,8 @@ Route::get('/', [UsersController::class, 'index']);
 Route::get('/signin', [UsersController::class,'signIn']);
 Route::get('/signup', [UsersController::class,'signUp']);
 Route::post('/store', [UsersController::class, 'store']);
+Route::get('/signinlawer', [UsersController::class,'signInLawer']);
+Route::get('/signinclient', [UsersController::class,'signInClient']);
 
  Route::get("/signin2", function () {
     return Inertia::render("signin-2");

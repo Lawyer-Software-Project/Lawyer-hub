@@ -3,13 +3,17 @@ import Button from '@/components/button/button';
 import Input from '@/components/input/Input';
 import { router } from '@inertiajs/react';
 
-function FormBuild({ imgSrc, imgAlt, mainTitle, bottomText, bottomLink }) {
+function FormBuild({ imgSrc, imgAlt, mainTitle, bottomText, bottomLink, link}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        router.post('/store', { email, password });
+        router.post('/store', { email, password }, {
+            onSuccess: () => {
+                router.visit(link); // Redireciona para a página desejada após a submissão bem-sucedida
+            }
+        });
     };
 
     return (

@@ -39,5 +39,15 @@ class UsersController extends Controller
 
         return redirect('signin');
     }
+
+    public function signInLawer(){
+
+        return Inertia::render("signinlawer");
+    }
+
+    public function signInClient(){
+
+        return Inertia::render("signinclient");
+    }
 }
 

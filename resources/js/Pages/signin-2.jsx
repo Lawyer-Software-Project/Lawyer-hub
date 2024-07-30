@@ -15,12 +15,14 @@ function Signin2()
                 text={'Advogado'}
                 width={'160px'}
                 height={'30px'}
+                url={'/signinlawer'}
                 />
                 &nbsp;&nbsp;
                 <Button
                 text={'Cliente'}
                 width={'160px'}
                 height={'30px'}
+                url={'/signinclient'}
                 />
             </div>
         </div>
