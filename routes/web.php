@@ -15,6 +15,9 @@ Route::get('/signinclient', [UsersController::class,'signInClient']);
  Route::get("/signin2", function () {
     return Inertia::render("signin-2");
 });
+ Route::get("/cases", function () {
+    return Inertia::render("cases");
+});
 
 /* Route::get("/signup", function () {
     return Inertia::render("signup");
