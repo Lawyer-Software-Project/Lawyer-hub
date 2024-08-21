@@ -1,4 +1,5 @@
 import Layout from "@/layouts/layout.jsx";
+import ClientCard from "@/components/clientpage/clientcard";
 
 function LawyerPage() {
 
@@ -17,6 +18,7 @@ function LawyerPage() {
                 </div>
             </div>
         </div>
+        <ClientCard />
     </>);
 }
 
