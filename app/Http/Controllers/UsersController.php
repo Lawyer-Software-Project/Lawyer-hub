@@ -50,6 +50,11 @@ class UsersController extends Controller
         return Inertia::render("signinclient");
     }
 
+    public function clientPage(){
+
+        return Inertia::render("clientPage");
+    }
+
     public function lawyerPage()
     {
         return Inertia::render("lawyerPage");
