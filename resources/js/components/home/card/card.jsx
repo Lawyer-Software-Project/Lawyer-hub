@@ -1,15 +1,14 @@
+import changeColor from "@/components/changeColor"
+
 function card({ imageSrc, title, description, position, colorWords }) {
     const divClass = "w-full grid grid-cols-2 p-[5%] items-center justify-items-center"
     const imgClass = "w-[300px]"
     const h1Class = "text-[1.5em]"
     const childrenDivClass = "w-[50%]"
 
-    for (let word of colorWords) {
-        if (title.includes(word)) {
-            const replacement = `<span class="text-[#1557BB]">${word}</span>`;
-            title = title.replaceAll(word, replacement);
-        }
-    }
+    
+    changeColor({ text: title, colorWords:colorWords, color: "red" });
+    
 
     if (position === "ImageRight") {
         return (
