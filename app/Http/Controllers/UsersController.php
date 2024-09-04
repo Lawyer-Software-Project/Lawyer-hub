@@ -59,5 +59,10 @@ class UsersController extends Controller
     {
         return Inertia::render("lawyerPage");
     }
+
+    public function aboutUsPage()
+    {
+        return Inertia::render("aboutUsPage");
+    }
 }
 
