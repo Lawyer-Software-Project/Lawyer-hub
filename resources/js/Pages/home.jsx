@@ -2,6 +2,7 @@ import Layout from "@/layouts/layout.jsx"
 import Card from '../components/home/card/card.jsx'
 import Button from '../components/button/button.jsx'
 
+
 function Home() {
     return (<>
         <div>
