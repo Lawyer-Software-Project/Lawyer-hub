@@ -15,15 +15,18 @@ function Signin2()
                 text={'Advogado'}
                 width={'160px'}
                 height={'30px'}
-                url={'/signinlawer'}
+                url={'/signuplawyer'}
                 />
                 &nbsp;&nbsp;
                 <Button
                 text={'Cliente'}
                 width={'160px'}
                 height={'30px'}
-                url={'/signinclient'}
+                url={'/signupclient'}
                 />
+            </div>
+            <div className="flex justify-center items-center mt-2">
+                Ja possui uma conta?&nbsp;<a className="text-[#4485E7]" href="/signin">Entrar</a>
             </div>
         </div>
         

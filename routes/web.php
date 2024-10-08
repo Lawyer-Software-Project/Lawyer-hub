@@ -9,14 +9,15 @@ Route::get('/', [UsersController::class, 'index']);
 Route::get('/signin', [UsersController::class,'signIn']);
 Route::get('/signup', [UsersController::class,'signUp']);
 Route::post('/store', [UsersController::class, 'store']);
-Route::get('/signinlawer', [UsersController::class,'signInLawer']);
-Route::get('/signinclient', [UsersController::class,'signInClient']);
+Route::get('/signuplawyer', [UsersController::class,'signupLawyer']);
+Route::get('/signupclient', [UsersController::class,'signupClient']);
 
- Route::get("/signin2", function () {
-    return Inertia::render("signin-2");
-});
+
  Route::get("/cases", function () {
     return Inertia::render("cases");
+});
+Route::get("/formcases", function () {
+    return Inertia::render("formCases");
 });
 
 /* Route::get("/signup", function () {
