@@ -9,9 +9,19 @@ function FormBuild({ imgSrc, imgAlt, mainTitle, bottomText, bottomLink, link, Li
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        router.post('/store', { email, password }, {
+        router.post('/login', {usu_email: email, usu_password: password }, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
             onSuccess: () => {
-                router.visit(link); // Redireciona para a página desejada após a submissão bem-sucedida
+                alert('Login realizado com sucesso!');
+                console.log(email, password);
+
+            },
+            onError: (error) => {
+                console.error('Erro ao realizar o login', error);
+                console.log(email, password);
+
             }
         });
     };

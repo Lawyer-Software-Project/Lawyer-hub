@@ -32,14 +32,11 @@ function SignupLawyer() {
           headers: {
             'Content-Type': 'application/json', // Definindo o Content-Type
           },
-            onSuccess: () => {
-                router.visit('/signin'); 
-            },
             onError: (error) => {
                 console.error('Erro ao realizar o cadastro',error);
             }
         });
-        console.log("Dados do Formulário:", formData); 
+       // console.log("Dados do Formulário:", formData); 
       
 
     }
@@ -122,8 +119,7 @@ function SignupLawyer() {
         </button>
       </form>
 
-      {/* {error && <div className="text-red-500 mt-3">{error}</div>}
-      {success && <div className="text-green-500 mt-3">{success}</div>} */}
+     
     </div>
     </>
   );

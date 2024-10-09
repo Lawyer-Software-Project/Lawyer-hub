@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\UserModel;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
@@ -42,7 +43,32 @@ class UsersController extends Controller
         }
     }
     
+    public function login(Request $request)
+    {
+        $validatedData = $request->validate([
+            'usu_email' => 'required|email',
+            'usu_password' => 'required|min:8',
+        ]);
 
+        // Verifica se o usuário existe
+        $user = UserModel::where('usu_email', $validatedData['usu_email'])->first();
+
+        if ($user && Hash::check($validatedData['usu_password'], $user->usu_password)) {
+            // Autentica o usuário
+            Auth::login($user);
+
+            return response()->json(['message' => 'Login realizado com sucesso!']);
+        }
+
+        return response()->json(['error' => 'Credenciais inválidas'], 401);
+    }
+
+    // Função para logout
+    public function logout()
+    {
+        Auth::logout();
+        return response()->json(['message' => 'Logout realizado com sucesso!']);
+    }
 
 }
 

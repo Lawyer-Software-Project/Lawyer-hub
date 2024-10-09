@@ -46,5 +46,9 @@ class RouterController extends Controller
 
         return Inertia::render("signIn");
     }
+    public function aboutUs(){
+
+        return Inertia::render("aboutUs");
+    }
 
 }
