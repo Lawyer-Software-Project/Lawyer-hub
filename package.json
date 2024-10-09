@@ -20,6 +20,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "react-input-mask": "^2.0.4",
         "react-select": "^5.8.1"
     }
 }
