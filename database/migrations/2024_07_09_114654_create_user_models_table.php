@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::create('cad_users', function (Blueprint $table) {
             $table->bigIncrements('usu_id'); 
+            $table->string('usu_nome');
             $table->string('usu_email')->unique();
             $table->string('usu_password');
             $table->boolean('usu_admin')->default(false);

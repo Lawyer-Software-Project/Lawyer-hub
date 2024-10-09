@@ -13,17 +13,19 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
+            'usu_nome' => 'required|string|max:255',
             'usu_email' => 'required|email|unique:cad_users,usu_email',
             'usu_password' => 'required|min:8',
             'usu_admin' => 'boolean',
             'usu_lawyer' => 'boolean',
             'usu_oab' => 'nullable|string',
-            'usu_cpf' => 'required|string|max:12|unique:cad_users,usu_cpf',
-            'usu_phone' => 'required|string|max:12',
+            'usu_cpf' => 'required|string|max:14|unique:cad_users,usu_cpf',
+            'usu_phone' => 'required|string|max:15',
         ]);
     
         try {
             $user = new UserModel();  
+            $user->usu_nome = $validatedData['usu_nome'];
             $user->usu_email = $validatedData['usu_email'];
             $user->usu_password = Hash::make($validatedData['usu_password']); // Hash da senha
             $user->usu_admin = $validatedData['usu_admin'] ?? false;
