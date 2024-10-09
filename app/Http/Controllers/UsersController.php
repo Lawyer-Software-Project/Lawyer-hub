@@ -38,7 +38,7 @@ class UsersController extends Controller
             return response()->json(['message' => 'Usuário cadastrado com sucesso!'], 201);
     
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Erro ao cadastrar usuário.'], 500);
+            return response()->json(['error' => $e], 500);
         }
     }
     
