@@ -110,7 +110,7 @@ function CasosForm() {
             type="submit"
             className="mt-4 p-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600"
           >
-            Submit
+            Enviar
           </button>
         </form>
       </div>
