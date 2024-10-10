@@ -47,30 +47,27 @@ class UsersController extends Controller
     }
 
     public function login(Request $request)
-{
-    $validatedData = $request->validate([
-        'usu_email' => 'required|email',
-        'usu_password' => 'required|min:8',
-    ]);
+    {
+        $validatedData = $request->validate([
+            'usu_email' => 'required|email',
+            'usu_password' => 'required|min:8',
+        ]);
 
-    // Verifica se o usuário existe
-    $user = UserModel::where('usu_email', $validatedData['usu_email'])->first();
+        // Verifica se o usuário existe
+        $user = UserModel::where('usu_email', $validatedData['usu_email'])->first();
 
-    if ($user) {
-        // Verifique a senha manualmente
-        if (Hash::check($validatedData['usu_password'], $user->usu_password)) {
-            // Autentica o usuário
-            Auth::login($user);
+        if ($user) {
+            if (Hash::check($validatedData['usu_password'], $user->usu_password)) {
+                Auth::login($user);
 
-            // Redireciona para a rota /cases após o login bem-sucedido
-            return redirect('/cases')->with('success', 'Login realizado com sucesso!');
+                return redirect('/cases')->with('success', 'Login realizado com sucesso!');
+            } else {
+                return response()->json(['message' => 'Senha inválida!'], 401);
+            }
         } else {
-            return response()->json(['message' => 'Senha inválida!'], 401);
+            return response()->json(['message' => 'Email inválido!'], 401);
         }
-    } else {
-        return response()->json(['message' => 'Email inválido!'], 401);
     }
-}
 
 
 
