@@ -1,6 +1,6 @@
 import Layout from "@/layouts/layout.jsx"
 import Card from '../components/home/card/card.jsx'
-import Button from '../components/button/button.jsx'
+
 
 
 function Home() {
@@ -11,8 +11,10 @@ function Home() {
                 <img src="/assets/home/mainHome.png" alt="mainImg"
                     className="w-full h-[75vh] object-cover object-left-top overflow-hidden brightness-75" />
             </div>
-
-            <Card
+            
+            <h1 className="text-3xl mt-10 ml-10">Transformando a busca por advogados em uma experiência simples e acessível.</h1>
+            
+            {/* <Card
                 title={'Advogados Qualificados e Verificados para ajudar no seu Problema!'}
                 imageSrc={'/assets/home/lawyer.png'}
                 position={'ImageRight'}
@@ -26,16 +28,9 @@ function Home() {
                 position={'ImageLeft'}
                 colorWords={['Velocidade', 'Problema!']}
                 description={'Resolva seu caso com mais rapidez, sem demora exagerada para encontrar advogados!'}
-            />
+            /> */}
 
-            <div className="flex justify-center m-[5vh]">
-                <Button
-                    text={'Começar!'}
-                    width={'250px'}
-                    height={'50px'}
-                    href={'/signin'}
-                />
-            </div>
+            
         </div>
     </>)
 }

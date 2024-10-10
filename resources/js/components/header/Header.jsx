@@ -14,12 +14,21 @@ export default function Header() {
             <a href="/logout" className="ml-4 text-blue-500">Logout</a>
           </div>
         ) : (
-          <a href="/signup">
-            <div id="signUp" className="flex flex-row gap-2">
-              <span>Cadastre-se</span>
-              <img src="/assets/signUp.svg" alt="signUp" />
-            </div>
-          </a>
+          <div className="flex gap-3 font-bold">
+            <a href="/signin">
+              <div id="login" className="flex flex-row gap-1">
+                <span>Entrar</span>
+                <img src="/assets/signIn.svg" alt="signIn" width="20px" />
+              </div>
+            </a>
+            
+            <a href="/signup">
+              <div id="signUp" className="flex flex-row gap-1">
+                <span>Cadastre-se</span>
+                <img src="/assets/signUp.svg" alt="signUp" width="20px" />
+              </div>
+            </a>
+          </div>
         )}
       </header>
     </>

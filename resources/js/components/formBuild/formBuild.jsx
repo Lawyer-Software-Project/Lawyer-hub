@@ -14,14 +14,13 @@ function FormBuild({ imgSrc, imgAlt, mainTitle, bottomText, bottomLink, link, Li
                 'Content-Type': 'application/json',
             },
             onSuccess: () => {
-                alert('Login realizado com sucesso!');
                 console.log(email, password);
+                alert('Login efetuado com sucesso!');
 
             },
             onError: (error) => {
-                console.error('Erro ao realizar o login', error);
+                alert('Senha ou e-mail inválidos', error);
                 console.log(email, password);
-
             }
         });
     };
