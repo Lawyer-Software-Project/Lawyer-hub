@@ -1,27 +1,18 @@
 import { useState } from 'react';
 import Button from '@/components/button/button';
-import Input from '@/components/input/Input';
 import { router } from '@inertiajs/react';
 
-function FormBuild({ imgSrc, imgAlt, mainTitle, bottomText, bottomLink, link, LinkPage}) {
+function FormBuild({ imgSrc, imgAlt, mainTitle, bottomText, bottomLink, link, LinkPage }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        router.post('/login', {usu_email: email, usu_password: password }, {
+        router.post('/login', { usu_email: email, usu_password: password }, {
             headers: {
                 'Content-Type': 'application/json',
             },
-            onSuccess: () => {
-                console.log(email, password);
-                alert('Login efetuado com sucesso!');
-
-            },
-            onError: (error) => {
-                alert('Senha ou e-mail inválidos', error);
-                console.log(email, password);
-            }
+            onSuccess: () => console.log("Dados enviados com sucesso"),
         });
     };
 
@@ -38,29 +29,11 @@ function FormBuild({ imgSrc, imgAlt, mainTitle, bottomText, bottomLink, link, Li
                         </div>
 
                         <form onSubmit={handleSubmit} className="flex flex-col mb-12">
-                           {/*  <Input 
-                                id="email" 
-                                label="E-mail" 
-                                width="300px" 
-                                height="30px" 
-                                placeholder="email@example.com" 
-                                value={email} 
-                                onChange={(e) => setEmail(e.target.value)} 
-                            /> */}
+
                             <input type="email" placeholder="E-mail" required value={email} onChange={(e) => setEmail(e.target.value)} />
                             &nbsp;&nbsp;
-                           {/*  <Input 
-                                id="password" 
-                                label="Password" 
-                                width="300px" 
-                                height="30px" 
-                                placeholder="***********" 
-                                type="password" 
-                                value={password} 
-                                onChange={(e) => setPassword(e.target.value)} 
-                            /> */}
 
-                            <input type="password" placeholder="Password" required value={password} onChange={(e) => setPassword(e.target.value)} className="mb-[20px]"/>
+                            <input type="password" placeholder="Password" required value={password} onChange={(e) => setPassword(e.target.value)} className="mb-[20px]" />
 
                             <Button
                                 text="Continuar"

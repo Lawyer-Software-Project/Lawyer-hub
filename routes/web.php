@@ -1,28 +1,46 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RouterController;
+use Inertia\Inertia;
 
-Route::get('/', [RouterController::class, 'index']);  
-Route::get('/signin', [RouterController::class,'signIn'])->name('login');
-Route::get('/signup', [RouterController::class,'signUp']);
-Route::get('/signuplawyer', [RouterController::class,'signupLawyer']);
-Route::get('/signupclient', [RouterController::class,'signupClient']);
-Route::get('/aboutus', [RouterController::class,'aboutUs']);
+// Rotas para renderização
+Route::controller(RouterController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/signin', 'signIn')->name('login');
+    Route::get('/signup', 'signUp');
+    Route::get('/signuplawyer', 'signupLawyer');
+    Route::get('/signupclient', 'signupClient');
+    Route::get('/aboutus', 'aboutUs');
+});
 
-// Rotas para gerenciar cadastro
-Route::post('/store', [UsersController::class, 'store']);
-Route::post('/login', [UsersController::class, 'login']);
-Route::post('/logout', [UsersController::class, 'logout']);
+// Rotas para gerenciar cadastro de Usuário
+Route::controller(UsersController::class)->group(function () {   
+    Route::post('/store', 'store');
+    Route::post('/login', 'login');
+    Route::post('/logout', 'logout');
+});
 
-Route::get('/cases', function () {
-    return Inertia::render("cases");
+// Rotas protegidas por middleware
+Route::middleware(['auth'])->group(function () {
+    Route::get('/cases', function () {
+        return Inertia::render('cases');
+    })->name('cases');
+
+    // Adicione outras rotas protegidas aqui
+    Route::get('/formcases', function () {
+        return Inertia::render('formCases');
+    });
+});
+
+
+
+
+/* Route::get('/cases', function () {
+   return Inertia::render("cases");
 })->middleware('auth');
-
+ */
 /* Route::middleware('auth')->group(function () {
    Route::get("/cases", function () {
       return Inertia::render("cases");
@@ -31,18 +49,3 @@ Route::get('/cases', function () {
         return Inertia::render("formCases");
      });
 }); */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

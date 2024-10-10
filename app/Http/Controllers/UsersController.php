@@ -2,19 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\UserModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Symfony\Component\HttpKernel\Event\ResponseEvent;
-
-
-use function Laravel\Prompts\alert;
 
 class UsersController extends Controller
 {
-
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -40,9 +34,9 @@ class UsersController extends Controller
             $user->usu_phone = $validatedData['usu_phone'];
             $user->save();
 
-            return redirect('/signin')->with('success', 'Usário criado com sucesso!');
+            return redirect('/signin')->with('success', 'Usuário criado com sucesso!');
         } catch (\Exception $e) {
-            return response()->json(['error' => $e], 500);
+            return response()->json(['error' => $e->getMessage()], 500);
         }
     }
 
@@ -56,22 +50,18 @@ class UsersController extends Controller
         // Verifica se o usuário existe
         $user = UserModel::where('usu_email', $validatedData['usu_email'])->first();
 
-        if ($user) {
-            if (Hash::check($validatedData['usu_password'], $user->usu_password)) {
-                Auth::login($user);
-
-                return redirect('/cases')->with('success', 'Login realizado com sucesso!');
-            } else {
-                return response()->json(['message' => 'Senha inválida!'], 401);
+        if ($user && Hash::check($validatedData['usu_password'], $user->usu_password)) {
+            Auth::login($user);                      
+            if(Auth::check()){
+                return response()->json(['message' => 'Login efetuado com sucesso!', 'redirect' => url('/cases')]);                
+            }else{
+                return response()->json(['message' => 'Não logou']);
             }
         } else {
-            return response()->json(['message' => 'Email inválido!'], 401);
+            return response()->json(['message' => 'Email ou senha inválidos!'], 401);
         }
     }
 
-
-
-    // Função para logout
     public function logout()
     {
         Auth::logout();
