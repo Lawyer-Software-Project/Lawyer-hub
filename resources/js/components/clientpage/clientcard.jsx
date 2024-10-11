@@ -1,6 +1,6 @@
 function clientCard() {
     return (<>
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 mb-[8vh]">
             <div className="flex justify-center">
                 <h1 className="text-[32px] mt-20 font-bold border-b-4 border-[#1557BB]">COMO FUNCIONA</h1>
             </div>
