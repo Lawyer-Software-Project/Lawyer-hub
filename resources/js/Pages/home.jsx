@@ -11,26 +11,32 @@ function Home() {
                 <img src="/assets/home/mainHome.png" alt="mainImg"
                     className="w-full h-[75vh] object-cover object-left-top overflow-hidden brightness-75" />
             </div>
-            
-            <h1 className="text-3xl mt-10 ml-10">Transformando a busca por advogados em uma experiência simples e acessível.</h1>
-            
-            {/* <Card
-                title={'Advogados Qualificados e Verificados para ajudar no seu Problema!'}
-                imageSrc={'/assets/home/lawyer.png'}
-                position={'ImageRight'}
-                colorWords={['Qualificados', 'Verificados', 'Problema!']}
-                description={'Conecte-se com diversos advogados de diferentes áreas de todo o Brasil!'}
-            />
 
-            <Card
-                title={'Velocidade na resolução do seu Problema!'}
-                imageSrc={'/assets/home/speed.png'}
-                position={'ImageLeft'}
-                colorWords={['Velocidade', 'Problema!']}
-                description={'Resolva seu caso com mais rapidez, sem demora exagerada para encontrar advogados!'}
-            /> */}
+            <div className="m-16 text-end">
+                <h1 className="text-3xl border-b-4 border-[#1557BB] inline">Transformando a busca por advogados em uma experiência simples e acessível.</h1>
+            </div>
 
-            
+            <div className="flex justify-center gap-10 m-16">
+                <Card
+                    linkPath={'/lawyerpage'}
+                    imagePath="/assets/home/hammerLawyer.jpg"
+                    title="Advogados"
+                    description="Conheça Advogados verificados e dispostos a trabalhar para lidar com seu problema."
+                />
+                <Card
+                    linkPath={'/clientpage'}
+                    imagePath="/assets/home/lawyers.jpeg"
+                    title="Clientes"
+                    description="Acesse nosso site e conheça os casos que foram publicados por nossos clientes."
+                />
+                <Card
+                    linkPath={'/aboutus'}
+                    imagePath="/assets/home/bestOfTwo.jpeg"
+                    title="Loren Ipsun"
+                    description="Loren Ipsum is simply dummy text of the printing and typesetting industry."
+                />
+            </div>
+
         </div>
     </>)
 }

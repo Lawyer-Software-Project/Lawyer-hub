@@ -13,6 +13,8 @@ Route::controller(RouterController::class)->group(function () {
     Route::get('/signuplawyer', 'signupLawyer');
     Route::get('/signupclient', 'signupClient');
     Route::get('/aboutus', 'aboutUs');
+    Route::get('/lawyerpage', 'lawyerPage');
+    Route::get('/clientpage', 'clientPage');
 });
 
 // Rotas para gerenciar cadastro de Usuário

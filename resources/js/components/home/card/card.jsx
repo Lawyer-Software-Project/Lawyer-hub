@@ -1,47 +1,13 @@
-import changeColor from "@/components/changeColor"
-
-function card({ imageSrc, title, description, position, colorWords }) {
-    const divClass = "w-full grid grid-cols-2 p-[5%] items-center justify-items-center"
-    const imgClass = "w-[300px]"
-    const h1Class = "text-[1.5em]"
-    const childrenDivClass = "w-[50%]"
-
-    
-    changeColor({ text: title, colorWords:colorWords, color: "red" });
-    
-
-    if (position === "ImageRight") {
-        return (
-            <>
-                <div className={divClass}>
-                    <div className={childrenDivClass}>
-                        <h1 className={h1Class} dangerouslySetInnerHTML={{ __html: title }}></h1>
-                        <p>{description}</p>
-                    </div>
-                    <img src={imageSrc} alt="Home Images" className={imgClass} />
-                </div>
-            </>
-        );
-    } else if (position === "ImageLeft") {
-        return (
-            <>
-                <div className={divClass}>
-                    <img src={imageSrc} alt="Home Images" className={imgClass} />
-                    <div className={childrenDivClass + " text-right"}>
-                        <h1 className={h1Class} dangerouslySetInnerHTML={{ __html: title }}></h1>
-                        <p>{description}</p>
-                    </div>
-                </div>
-            </>
-        );
-    } else {
-        return (
-            <>
-                <h1>Put the props - ImageLeft or ImageRight in position, title, description and imageSrc</h1>
-            </>
-        );
-    }
-
+function card({ imagePath, title, description, linkPath}) {
+    return (<>
+        <div className="bg-white rounded-lg shadow-lg w-[25%] hover:scale-105 transition-all">
+            <a href={linkPath}>
+                <img src={imagePath} alt={title} className="h-[25vh] w-full " />
+                <h1 className="text-[#1557BB] text-2xl m-3">{title}</h1>
+                <p className="m-4">{description}</p>
+            </a>
+        </div>
+    </>)
 }
 
 export default card
