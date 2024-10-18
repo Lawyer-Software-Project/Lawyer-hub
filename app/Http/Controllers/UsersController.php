@@ -48,23 +48,27 @@ class UsersController extends Controller
         ]);
 
         // Verifica se o usuário existe
-        $user = UserModel::where('usu_email', $validatedData['usu_email'])->first();
+        
+        $credentials = array(
+            'email' => $validatedData["usu_email"],
+            'password' => $validatedData["usu_password"]
+        );
+        
+        if (Auth::attempt($credentials)) {                 
+            $request->session()->regenerate();
 
-        if ($user && Hash::check($validatedData['usu_password'], $user->usu_password)) {
-            Auth::login($user);                      
-            if(Auth::check()){
-                return response()->json(['message' => 'Login efetuado com sucesso!', 'redirect' => url('/cases')]);                
-            }else{
-                return response()->json(['message' => 'Não logou']);
-            }
+                return response()->json(['message' => 'Login efetuado com sucesso!', 'redirect' => url('/cases')]);                   
         } else {
             return response()->json(['message' => 'Email ou senha inválidos!'], 401);
         }
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return response()->json(['message' => 'Logout realizado com sucesso!']);
     }
 }
