@@ -10,7 +10,7 @@ export default function Header() {
         <Logo />
         {auth.user ? (
           <div className="flex items-center">
-            <span>Bem-vindo, {auth.user.usu_nome}!</span>
+            <span>Bem-vindo, {auth.user.name}!</span>
             <a href="/logout" className="ml-4 text-blue-500">Logout</a>
           </div>
         ) : (

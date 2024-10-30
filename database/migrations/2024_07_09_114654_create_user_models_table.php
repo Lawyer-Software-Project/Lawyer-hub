@@ -10,9 +10,12 @@ return new class extends Migration
     {
         Schema::create('cad_users', function (Blueprint $table) {
             $table->bigIncrements('usu_id'); 
-            $table->string('usu_nome');
-            $table->string('usu_email')->unique();
-            $table->string('usu_password');
+            $table->unsignedBigInteger('fk_user_id');
+            $table->foreign('fk_user_id')->references('id')->on('users');
+
+            //$table->string('usu_nome');
+            //$table->string('usu_email')->unique();
+            //$table->string('usu_password');
             $table->boolean('usu_admin')->default(false);
             $table->boolean('usu_lawyer')->default(false)->index('idx_usu_lawyer');
             $table->string('usu_oab')->nullable();
@@ -25,8 +28,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('cad_users');
-        Schema::dropIfExists('sessions');
-
+       
     }
 };
 

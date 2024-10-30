@@ -13,7 +13,7 @@ function signupClient() {
     usu_cpf: "",
     usu_phone: "",
     usu_admin: false,
-    usu_lawyer: true,
+    usu_lawyer: false,
   });
 
   const handleChange = (e) => {

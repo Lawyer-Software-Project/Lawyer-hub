@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\UserModel;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -23,16 +24,20 @@ class UsersController extends Controller
         ]);
 
         try {
-            $user = new UserModel();
-            $user->usu_nome = $validatedData['usu_nome'];
-            $user->usu_email = $validatedData['usu_email'];
-            $user->usu_password = Hash::make($validatedData['usu_password']); // Hash da senha
-            $user->usu_admin = $validatedData['usu_admin'] ?? false;
-            $user->usu_lawyer = $validatedData['usu_lawyer'] ?? false;
-            $user->usu_oab = $validatedData['usu_oab'];
-            $user->usu_cpf = $validatedData['usu_cpf'];
-            $user->usu_phone = $validatedData['usu_phone'];
+            $user = new User();
+            $user->name = $validatedData['usu_nome'];
+            $user->email = $validatedData['usu_email'];
+            $user->password = Hash::make($validatedData['usu_password']); // Hash da senha
             $user->save();
+
+            $userModel = new UserModel();
+            $userModel->fk_user_id = $user->id;
+            $userModel->usu_admin = $validatedData['usu_admin'] ?? false;
+            $userModel->usu_lawyer = $validatedData['usu_lawyer'] ?? false;
+            $userModel->usu_oab = $validatedData['usu_oab'];
+            $userModel->usu_cpf = $validatedData['usu_cpf'];
+            $userModel->usu_phone = $validatedData['usu_phone'];
+            $userModel->save();
 
             return redirect('/signin')->with('success', 'Usuário criado com sucesso!');
         } catch (\Exception $e) {
@@ -56,10 +61,19 @@ class UsersController extends Controller
         
         if (Auth::attempt($credentials)) {                 
             $request->session()->regenerate();
+            // Obtém o usuário autenticado
+            $userId = Auth::id();
+            $user = UserModel::where('fk_user_id', $userId)->first();
+            // Verifica o valor de 'usu_lawyer' e redireciona de acordo
+            if ($user->usu_lawyer) {
+                return redirect('/cases');
+            } else {
+                return redirect('/formcases');
+            }  
 
-                return response()->json(['message' => 'Login efetuado com sucesso!', 'redirect' => url('/cases')]);                   
+           // echo response()->json(['message' => 'Login realizado com sucesso!'], 200);        
         } else {
-            return response()->json(['message' => 'Email ou senha inválidos!'], 401);
+            echo response()->json(['message' => 'Email ou senha inválidos!'], 401);
         }
     }
 

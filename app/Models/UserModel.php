@@ -11,5 +11,6 @@ class UserModel extends Model implements AuthenticatableContract
 {
     use Authenticatable;
     use HasFactory;
+ 
     protected $table = 'cad_users'; 
 }
