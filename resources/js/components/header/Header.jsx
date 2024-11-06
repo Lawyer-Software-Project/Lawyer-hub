@@ -1,8 +1,15 @@
 import Logo from "../logo/logo";
 import { usePage } from "@inertiajs/react";
-
+import axios from "axios";
 export default function Header() {
   const { auth } = usePage().props;  // Acessa o objeto 'auth' compartilhado
+
+
+  const handleLogout = () => {
+    axios.post('/logout').then(() => {
+      window.location.href = '/'; 
+    });
+  };
 
   return (
     <>
@@ -11,7 +18,17 @@ export default function Header() {
         {auth.user ? (
           <div className="flex items-center">
             <span>Bem-vindo, {auth.user.name}!</span>
-            <a href="/logout" className="ml-4 text-blue-500">Logout</a>
+            <img id="menu-button" aria-expanded="true" aria-haspopup="true" src={`https://ui-avatars.com/api/?name=${auth.user.name}&background=5e87c5&rounded=true&size=30`} className="ml-2" alt="" />
+            <div className="absolute top-9 right-[6rem] z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+    <div className="py-1" role="none">
+      <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-3">Meu Perfil</a>
+      <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-4">Meus Casos</a>
+   </div>
+    <div className="py-1" role="none">
+      <a href="#" onClick={handleLogout} className="block px-4 py-2 text-sm text-red-700" role="menuitem" tabindex="-1" id="menu-item-6">Logout</a>
+    </div>
+  </div>
+             
           </div>
         ) : (
           <div className="flex gap-3 font-bold">

@@ -1,5 +1,5 @@
-import Layout from "@/layouts/layout.jsx"
-import { CasoLayout } from "@/components/casosLayout/casoLayout"
+import Layout from "@/Layouts/layout.jsx"
+import { CasoLayout } from "@/Components/casosLayout/casoLayout"
 
 function cases() {
     return (

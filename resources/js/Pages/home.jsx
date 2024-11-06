@@ -1,5 +1,5 @@
-import Layout from "@/layouts/layout.jsx"
-import Card from '../components/home/card/card.jsx'
+import Layout from "@/Layouts/layout.jsx"
+import Card from '../Components/home/card/card.jsx'
 
 
 

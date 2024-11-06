@@ -1,4 +1,4 @@
-import Layout from "@/layouts/layout";
+import Layout from "@/Layouts/layout";
 import InputMask from 'react-input-mask';
 import { useState } from "react";
 import { router } from "@inertiajs/react";
@@ -40,7 +40,7 @@ function signupClient() {
     }
     return (<>
     <div className="text-center h-[85vh] text-[30px]" >
-        <h1 className="text">Precisamos dessas Informaçoes pra concluir seu cadastro </h1>
+        <h1 className="text">Precisamos dessas informaçoes para concluir seu cadastro </h1>
         <form onSubmit={handleSubmit}>
             <h2 className="text font-['Poppins',_sans-serif] text-[15px] mt-5 text-gray-600">Nome Completo</h2>
             <input value={formData.usu_nome} name="usu_nome"

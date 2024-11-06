@@ -1,5 +1,5 @@
 
-import Layout from "@/layouts/layout"
+import Layout from "@/Layouts/layout"
 import React, { useState } from "react";
 import Select from 'react-select';
 
