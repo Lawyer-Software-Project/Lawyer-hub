@@ -54,5 +54,9 @@ class RouterController extends Controller
 
         return Inertia::render("ProfilePage");
     }
+    public function chatApp(){
+
+        return Inertia::render("Chat");
+    }
 
 }
