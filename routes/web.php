@@ -15,6 +15,7 @@ Route::controller(RouterController::class)->group(function () {
     Route::get('/aboutus', 'aboutUs');
     Route::get('/lawyerpage', 'lawyerPage');
     Route::get('/clientpage', 'clientPage');
+    Route::get('/profile', 'profilePage');
 });
 
 // Rotas para gerenciar cadastro de Usuário

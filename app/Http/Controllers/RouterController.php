@@ -50,5 +50,9 @@ class RouterController extends Controller
 
         return Inertia::render("aboutUs");
     }
+    public function profilePage(){
+
+        return Inertia::render("ProfilePage");
+    }
 
 }
