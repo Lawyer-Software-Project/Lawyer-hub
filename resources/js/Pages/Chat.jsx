@@ -1,26 +1,13 @@
 import Layout from "@/layouts/layout.jsx"
 import Header from "@/componentes/header/Header";
 import React, { useState } from 'react';
+import { Head } from '@inertiajs/react'
 
 const ChatApp = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-  const closeMenu = (e) => {
-    if (!e.target.closest('#menuButton') && !e.target.closest('#menuDropdown')) {
-      setMenuOpen(false);
-    }
-  };
-
-  React.useEffect(() => {
-    document.addEventListener('click', closeMenu);
-    return () => document.removeEventListener('click', closeMenu);
-  }, []);
+ 
 
   return (<>
+        <Head title={'Chat'} />
     <Header/>
     <div className="flex h-screen overflow-hidden">
       {/* Main Chat Area */}

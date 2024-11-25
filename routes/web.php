@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RouterController;
 use Inertia\Inertia;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 // Rotas para renderização
 Route::controller(RouterController::class)->group(function () {
@@ -24,6 +25,7 @@ Route::controller(UsersController::class)->group(function () {
     Route::post('/store', 'store');
     Route::post('/login', 'login');
     Route::post('/logout', 'logout');
+    Route::get('/currentuser', 'getCurrentUser');
 });
 
 // Rotas protegidas por middleware
@@ -38,6 +40,13 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
+Route::middleware(['auth', 'throttle:6,1'])->group(function () {
+    Route::post('/testemail', function (Request $request) {
+        $request->user()->sendEmailVerificationNotification();
+
+        return response()->json(['message' => 'E-mail de verificação enviado com sucesso!']);
+    })->name('verification.send');
+});
 
 
 
