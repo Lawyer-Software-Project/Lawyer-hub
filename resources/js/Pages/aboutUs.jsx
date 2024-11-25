@@ -1,4 +1,4 @@
-import Layout from "@/Layouts/layout.jsx"
+import Layout from "@/layouts/layout.jsx"
 function aboutUs() {
     return (<>
         <div className="flex justify-center">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Layout from "@/Layouts/layout.jsx";
+import Layout from "@/layouts/layout.jsx";
 import { MdEmail } from "react-icons/md";
 import InputMask from 'react-input-mask';
 

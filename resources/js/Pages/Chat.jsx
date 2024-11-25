@@ -1,5 +1,5 @@
-import Layout from "@/Layouts/layout.jsx"
-import Header from "@/Components/header/Header";
+import Layout from "@/layouts/layout.jsx"
+import Header from "@/componentes/header/Header";
 import React, { useState } from 'react';
 
 const ChatApp = () => {

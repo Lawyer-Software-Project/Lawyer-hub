@@ -1,4 +1,4 @@
-import Layout from "@/Layouts/layout";
+import Layout from "@/layouts/layout";
 import InputMask from 'react-input-mask';
 import { useState } from "react";
 import { router } from "@inertiajs/react";
