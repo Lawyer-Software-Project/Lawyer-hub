@@ -85,4 +85,26 @@ class UsersController extends Controller
 
         return response()->json(['message' => 'Logout realizado com sucesso!']);
     }
+
+    public function getCurrentUser()
+    {
+        $user = Auth::user();
+        $userModel = UserModel::where('fk_user_id', $user->id)->first();
+        if($user->email_verifed_at == null){
+            $verifed = false;
+        }else{
+            $verifed = true;
+        }
+        $userData = array(
+            'id' => $user->id,
+            'name' => $user->name,
+            'isVerified' => $verifed,
+            'email' => $user->email,
+            'usu_lawyer' => $userModel->usu_lawyer,
+            'usu_oab' => $userModel->usu_oab,
+            'usu_cpf' => $userModel->usu_cpf,
+            'usu_phone' => $userModel->usu_phone
+        );
+        return response()->json($userData);
+    }
 }
