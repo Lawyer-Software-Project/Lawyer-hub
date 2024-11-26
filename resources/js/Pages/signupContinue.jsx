@@ -1,5 +1,5 @@
 import Layout from "@/layouts/layout";
-import Button from "@/componentes/button/button";
+import Button from "@/components/button/button";
 
 function Signin2()
 {

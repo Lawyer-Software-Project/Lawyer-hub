@@ -1,5 +1,5 @@
 import Layout from "@/layouts/layout.jsx"
-import Header from "@/componentes/header/Header";
+import Header from "@/components/header/Header";
 import React, { useState } from 'react';
 import { Head } from '@inertiajs/react'
 

@@ -1,5 +1,5 @@
 import Layout from "@/layouts/layout.jsx";
-import FormBuild from '../componentes/formBuild/formBuild.jsx'
+import FormBuild from '../components/formBuild/formBuild.jsx'
 
 function SignIn() {
     return (<>
