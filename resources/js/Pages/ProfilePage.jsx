@@ -34,7 +34,7 @@ function Profile() {
                 cpf: res.data.cpf || "",
                 juridicoType: res.data.juridicoType || "",
                 oab: res.data.oab || "",
-                emailVerified: res.data.emailVerified || false,
+                //emailVerified: res.data.emailVerified || false,
             });
         } catch (err) {
             console.error("Error fetching user data:", err);
