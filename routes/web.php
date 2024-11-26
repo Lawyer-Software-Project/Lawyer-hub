@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RouterController;
 use Inertia\Inertia;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
+// use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\CasesController;
 
 // Rotas para renderização
 Route::controller(RouterController::class)->group(function () {
@@ -40,14 +41,19 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-Route::middleware(['auth', 'throttle:6,1'])->group(function () {
+/* Route::middleware(['auth', 'throttle:6,1'])->group(function () {
     Route::post('/testemail', function (Request $request) {
         $request->user()->sendEmailVerificationNotification();
 
         return response()->json(['message' => 'E-mail de verificação enviado com sucesso!']);
     })->name('verification.send');
-});
 
+}); */
+
+Route::controller(casesController::class)->group(function () {
+   Route::get('/findCases','findCases');
+   Route::post( '/sendcases', 'cadCases');
+});
 
 
 /* Route::get('/cases', function () {
