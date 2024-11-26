@@ -1,5 +1,5 @@
-import Layout from "@/Layouts/layout.jsx";
-import ClientCard from "@/Components/clientpage/clientcard";
+import Layout from "@/layouts/layout.jsx";
+import ClientCard from "@/componentes/clientpage/clientcard";
 
 function LawyerPage() {
 

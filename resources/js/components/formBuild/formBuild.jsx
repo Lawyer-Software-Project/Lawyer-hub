@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Button from '@/Components/button/button';
+import Button from '@/componentes/button/button';
 import { router } from '@inertiajs/react';
 
 function FormBuild({ imgSrc, imgAlt, mainTitle, bottomText, bottomLink, link, LinkPage }) {
