@@ -21,7 +21,7 @@ function Cases() {
     return (
         <>
             <h1 className="text-3xl text-center pr-10 pt-5">Casos Mais Recentes</h1>
-            <div className="min-h-screen pt-10 grid grid-cols-1 gap-y-5 gap-x-10 mb-20 lg:grid-cols-2 pl-10 pr-10">
+            <div className="min-h-[55vh] pt-10 grid grid-cols-1 gap-x-10 -gap-y-10 lg:grid-cols-2 pl-10 pr-10">
                 {cases.map((caseItem) => (
                     <CasoLayout 
                         key={caseItem.id} 
@@ -30,7 +30,7 @@ function Cases() {
                     />
                 ))}
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-[22vh]">
                 <a className="bg-[#4485E7] p-2 w-[150px] rounded-lg text-white" href="#">Procurar Mais Casos</a>
             </div>
         </>

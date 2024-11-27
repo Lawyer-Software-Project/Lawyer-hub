@@ -31,9 +31,9 @@ function Profile() {
                 name: res.data.name || "",
                 email: res.data.email || "",
                 role: res.data.role || "",
-                cpf: res.data.cpf || "",
-                juridicoType: res.data.juridicoType || "",
-                oab: res.data.oab || "",
+                cpf: res.data.usu_cpf || "",
+                juridicoType: res.data.usu_lawyer || "",
+                oab: res.data.usu_oab || ""
                 //emailVerified: res.data.emailVerified || false,
             });
         } catch (err) {
