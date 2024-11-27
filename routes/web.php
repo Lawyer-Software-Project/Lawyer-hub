@@ -17,8 +17,6 @@ Route::controller(RouterController::class)->group(function () {
     Route::get('/aboutus', 'aboutUs');
     Route::get('/lawyerpage', 'lawyerPage');
     Route::get('/clientpage', 'clientPage');
-    Route::get('/profile', 'profilePage');
-    Route::get('/chat', 'chatApp');
 });
 
 // Rotas para gerenciar cadastro de Usuário
@@ -34,6 +32,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cases', function () {
         return Inertia::render('cases');
     })->name('cases');
+
+    Route::get('/profile', function () {
+        return Inertia::render('ProfilePage');
+    })->name('profile');
+    Route::get('/chat', function () {
+        return Inertia::render('Chat');
+    })->name('chat');
+
+    Route::get('/plans', function () {
+        return Inertia::render('plans');
+    });
 
     // Adicione outras rotas protegidas aqui
     Route::get('/formcases', function () {

@@ -59,4 +59,14 @@ class RouterController extends Controller
         return Inertia::render("Chat");
     }
 
+    public function plans(){
+
+        return Inertia::render("plans");
+    }
+
+    public function payment(){
+
+        return Inertia::render("payment");
+    }
+
 }

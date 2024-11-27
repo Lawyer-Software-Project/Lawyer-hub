@@ -165,7 +165,7 @@ function Profile() {
                                 </div>
                                 <p className="font-light text-lg ml-2">Tier Free</p>
                             </div>
-                                <a className="bg-[#bdd4f6] rounded-lg py-[0.15rem] text-center inline-block w-40 text-sky-500 font-semibold " href="#">
+                                <a className="bg-[#bdd4f6] rounded-lg py-[0.15rem] text-center inline-block w-40 text-sky-500 font-semibold " href="plans">
                                 Mudar o Plano
                             </a>
                         </div>
