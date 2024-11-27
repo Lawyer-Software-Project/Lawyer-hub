@@ -51,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
 }); */
 
 Route::controller(casesController::class)->group(function () {
-   Route::get('/findCases','findCases');
+   Route::get('/findcases','findCases');
    Route::post( '/sendcases', 'cadCases');
 });
 
