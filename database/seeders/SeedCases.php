@@ -19,7 +19,7 @@ class SeedCases extends Seeder
         // Gerar 100 registros aleatórios
         for ($i = 0; $i < 100; $i++) {
             DB::table('cases')->insert([
-                'case_desc_short' => $faker->sentence(6), 
+                'case_title' => $faker->sentence(6), 
                 'case_desc_long' => $faker->paragraph(),  
                 'case_jud' => rand(1, 10),             
                 'created_at' => now(),

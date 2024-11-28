@@ -28,7 +28,7 @@ function Cases() {
         } else {
             setFilteredCases(
                 cases.filter(caseItem =>
-                    caseItem.case_desc_short.toLowerCase().includes(searchTerm.toLowerCase()) || // Busca pela descrição
+                    caseItem.case_title.toLowerCase().includes(searchTerm.toLowerCase()) || // Busca pela descrição
                     caseItem.case_desc_long.toLowerCase().includes(searchTerm.toLowerCase()) ||
                     new Date(caseItem.created_at).toLocaleDateString().includes(searchTerm) // Busca pela data
                 )
@@ -57,7 +57,7 @@ function Cases() {
                         key={caseItem.id} 
                         desc_case={caseItem.case_desc_long} 
                         case_date={new Date(caseItem.created_at).toLocaleDateString()} 
-                        tittle_case={caseItem.case_desc_short}
+                        tittle_case={caseItem.case_title}
                     />
                 ))}
             </div>

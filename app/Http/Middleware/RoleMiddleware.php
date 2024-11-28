@@ -23,7 +23,7 @@ class RoleMiddleware
             if ($user->isLawyer() ) {
                 return redirect('/');
             }
-            else if ($user->isClient()) {
+            else {
                 return $next($request);
             }
     }

@@ -17,8 +17,6 @@ export default function Header() {
     }
   };
 
-
-
   const handleLogout = () => {
     axios.post('/logout').then(() => {
       window.location.href = '/signin';

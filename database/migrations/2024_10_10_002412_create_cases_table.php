@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('cases', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('case_desc_short');
+            $table->string('case_title');
             $table->longText('case_desc_long');
             $table->integer('case_jud');
         });
