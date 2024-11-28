@@ -13,4 +13,14 @@ class UserModel extends Model implements AuthenticatableContract
     use HasFactory;
  
     protected $table = 'cad_users'; 
+
+    public function isLawyer()
+    {
+        if ($this->usu_lawyer == true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
