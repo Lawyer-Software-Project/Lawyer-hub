@@ -68,7 +68,7 @@ function Plans() {
                     <div
                         key={plan.name}
                         className={`border rounded-lg p-6 shadow-lg ${
-                            currentPlan === plan.name ? "border-sky-500" : "border-gray-300"
+                            currentPlan === plan.name ? "border-[#1557BB]" : "border-gray-300"
                         }`}
                     >
                         <h2 className="text-2xl font-bold mb-4">{plan.name}</h2>
@@ -78,7 +78,7 @@ function Plans() {
                             onClick={() => handleSelectPlan(plan.name)} // Envia o plano selecionado
                             className={`w-full py-2 px-4 rounded-lg ${
                                 currentPlan === plan.name
-                                    ? "bg-sky-500 text-white cursor-not-allowed"
+                                    ? "bg-[#1557BB] text-white cursor-not-allowed"
                                     : "bg-gray-300 text-gray-800 hover:bg-gray-400"
                             }`}
                             disabled={currentPlan === plan.name}

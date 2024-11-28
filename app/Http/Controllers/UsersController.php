@@ -66,9 +66,9 @@ class UsersController extends Controller
             $user = UserModel::where('fk_user_id', $userId)->first();
             // Verifica o valor de 'usu_lawyer' e redireciona de acordo
             if ($user->usu_lawyer) {
-                return redirect('/cases');
+                return redirect('/lawyerpage');
             } else {
-                return redirect('/formcases');
+                return redirect('/clientpage');
             }  
 
            // echo response()->json(['message' => 'Login realizado com sucesso!'], 200);        

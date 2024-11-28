@@ -1,16 +1,30 @@
 import Layout from "@/layouts/layout.jsx";
 import Card from "../components/home/card/card.jsx";
-import CallToAction from "@/components/home/calltoActionSection/calltoActionSection.jsx";'../components/home/calltoActionSection/calltoActionSection.jsx'
-import Newsletter from "@/components/home/newsletter/newsletter.jsx";'../components/home/newsletter/newsletter.jsx'
+// import Button from "@/components/button/button.jsx";
+import CallToAction from "@/components/home/calltoActionSection/calltoActionSection.jsx"; '../components/home/calltoActionSection/calltoActionSection.jsx'
+import Newsletter from "@/components/home/newsletter/newsletter.jsx"; '../components/home/newsletter/newsletter.jsx'
 
 function Home() {
     return (
         <>
             <div>
                 <div className="grid">
-                    <h2 className="absolute z-10 self-center text-white text-5xl w-[40%] m-[8%]">
-                        “Na advocacia moderna, inovar é ser pioneiro na defesa dos direitos e na busca por justiça.”
-                    </h2>
+                    <div className="absolute z-10 self-center grid grid-cols-2 text-white text-5xl m-[8%]">
+
+                        <h2 className=" justify-self-center">
+                            “Na advocacia moderna, inovar é ser pioneiro na defesa dos direitos e na busca por justiça.”
+                        </h2>
+
+                        <div className="self-end justify-self-center">
+                            <a href='/signup'>
+                                <button className="bg-[#1557BB] text-white rounded-[9px] hover:scale-105 transition-all text-2xl w-[350px] h-[4vh]">
+                                    Cadastre-se e veja os planos!
+                                </button>
+                            </a>
+                        </div>
+
+                    </div>
+
                     <img
                         src="/assets/home/mainHome.png"
                         alt="mainImg"
