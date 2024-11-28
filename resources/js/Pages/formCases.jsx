@@ -64,21 +64,22 @@ function CasosForm() {
 
           <form className="p-4 sm:p-6 flex flex-col space-y-4 w-full" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="shortDesc" className="block text-gray-700">Descrição Curta &nbsp;<span className="text-red-500">*Obrigatorio</span></label>
+              <label htmlFor="shortDesc" className="block text-gray-700">Titulo do caso &nbsp;<span className="text-red-500">*Obrigatorio</span></label>
               <textarea
                 required
-                maxLength={150}
+                maxLength={100}
                 name="case_desc_short" // Alterado
                 value={formData.case_desc_short}
                 onChange={handleChange}
                 className="w-full mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                placeholder="Digite uma descrição breve do seu caso (até 150 caracteres)"
+                placeholder="Digite um titulo para seu caso (até 100 caracteres)"
               />
             </div>
 
             <div>
-              <label htmlFor="longDesc" className="block text-gray-700">Descrição Longa</label>
+              <label htmlFor="longDesc" className="block text-gray-700">Descrição do caso &nbsp;<span className="text-red-500">*Obrigatorio</span></label>
               <textarea
+                required
                 maxLength={500}
                 name="case_desc_long" // Alterado
                 value={formData.case_desc_long}
